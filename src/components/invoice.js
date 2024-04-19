@@ -11,7 +11,7 @@ export default class invoice extends Component {
             <h4 className="card-title">0</h4>
             <div className="d-flex justify-content-between">
               <h4 className="text-muted">Total Purchase Invoices</h4>
-              <img src="assets/images/icon/cart.png" style={{height: 50, width: 50}} />
+              <img src="../assets/images/icon/cart.png" style={{height: 50, width: 50}} />
             </div>
           </div>
         </div>
@@ -22,7 +22,7 @@ export default class invoice extends Component {
             <h4 className="card-title">₹0</h4>
             <div className="d-flex justify-content-between">
               <h4 className="text-muted">Pending Purchase Amount</h4>
-              <img src="assets/images/icon/pending.png" style={{height: 50, width: 50}} />
+              <img src="../assets/images/icon/pending.png" style={{height: 50, width: 50}} />
             </div>   
           </div>
         </div>
@@ -33,7 +33,7 @@ export default class invoice extends Component {
             <h4 className="card-title">₹0</h4>
             <div className="d-flex justify-content-between">
               <h4 className="text-muted">Total Purchase Amount</h4>
-              <img src="assets/images/icon/amount.png" style={{height: 50, width: 50}} />
+              <img src="../assets/images/icon/amount.png" style={{height: 50, width: 50}} />
             </div>
           </div>
         </div>
@@ -44,7 +44,7 @@ export default class invoice extends Component {
             <h4 className="card-title">₹0</h4>
             <div className="d-flex justify-content-between">
               <h4 className="text-muted">Total Purchase Amount</h4>
-              <img src="assets/images/icon/rupee.png" style={{height: 50, width: 50}} />
+              <img src="../assets/images/icon/rupee.png" style={{height: 50, width: 50}} />
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@ export default class invoice extends Component {
             <h4 className="card-title">0</h4>
             <div className="d-flex justify-content-between">
               <h4 className="text-muted">Total Safe Invoice</h4>
-              <img src="assets/images/icon/cart.png" style={{height: 50, width: 50}} />
+              <img src="../assets/images/icon/cart.png" style={{height: 50, width: 50}} />
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@ export default class invoice extends Component {
             <h4 className="card-title">₹0</h4>
             <div className="d-flex justify-content-between">
               <h4 className="text-muted">Pending Sales Amount</h4>
-              <img src="assets/images/icon/pending.png" style={{height: 50, width: 50}} />
+              <img src="../assets/images/icon/pending.png" style={{height: 50, width: 50}} />
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@ export default class invoice extends Component {
             <h4 className="card-title">₹0</h4>
             <div className="d-flex justify-content-between">
               <h4 className="text-muted">Total Sales Amount</h4>
-              <img src="assets/images/icon/amount.png" style={{height: 50, width: 50}} />
+              <img src="../assets/images/icon/amount.png" style={{height: 50, width: 50}} />
             </div>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default class invoice extends Component {
             <h4 className="card-title">₹0</h4>
             <div className="d-flex justify-content-between">
               <h4 className="text-muted">Paid Sales Amount</h4>
-              <img src="assets/images/icon/rupee.png" style={{height: 50, width: 50}} />
+              <img src="../assets/images/icon/rupee.png" style={{height: 50, width: 50}} />
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@ export default class invoice extends Component {
             <div className="card-body">
               <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
-                  <img src="assets/images/icon/setting.png" style={{height: 50, width: 50, paddingRight: 5}} />
+                  <img src="../assets/images/icon/setting.png" style={{height: 50, width: 50, paddingRight: 5}} />
                   <li className="breadcrumb-item"><a href="#"><h4 style={{paddingTop: 15}}>CREATE PURCHASE INVOICE</h4></a></li>
                   <li>Create your digital purchase invoice on SalesBroz by uploading a copy<br /> of your handwritten invoice</li>
                   <button type="button" className="btn btn-outline-secondary btn-lg btn-block">View More  &gt;</button>
@@ -113,7 +113,7 @@ export default class invoice extends Component {
             <div className="card-body">
               <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
-                  <img src="assets/images/icon/laptop.png" style={{height: 50, width: 50, paddingRight: 5}} />
+                  <img src="../assets/images/icon/laptop.png" style={{height: 50, width: 50, paddingRight: 5}} />
                   <li className="breadcrumb-item"><a href="#"><h4 style={{paddingTop: 15}}>CREATE SALE INVOICE</h4></a></li>
                   <li>Create your digital sales invoice on SalesBroz and track paid and pending<br /> payment statuses with ease</li>
                   <button type="button" className="btn btn-outline-secondary btn-lg btn-block">View More  &gt;</button>
