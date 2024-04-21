@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class purchase_return extends Component {
+export default class Purchase_return extends Component {
   render() {
     return (
      <div>

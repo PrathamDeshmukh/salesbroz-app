@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-export default class invoice_setting extends Component {
+export default class Invoice_setting extends Component {
   render() {
     return (
       <div>

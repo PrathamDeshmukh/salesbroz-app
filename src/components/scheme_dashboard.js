@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class scheme_dashboard extends Component {
+export default class Scheme_dashboard extends Component {
   render() {
     return (
       <div>

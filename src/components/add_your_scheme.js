@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class add_your_scheme extends Component {
+export default class Add_your_scheme extends Component {
   render() {
     return (
       <div>
