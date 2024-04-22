@@ -17,6 +17,8 @@ import My_distributor from './components/my_distributor.js';
 import Scheme_dashboard from './components/scheme_dashboard.js';
 import Add_your_scheme from './components/add_your_scheme.js';
 import My_earnings from './components/my_earnings.js';
+import Ledger from './components/ledger.js';
+import IMEI_tracker from './components/imei_tracker.js';
 import Template from './components/template';
 
 import { BrowserRouter } from 'react-router-dom';
@@ -32,37 +34,38 @@ import {
 
 function App() {
   return (
-    
-     <BrowserRouter>
-     {/* This is the alias of BrowserRouter i.e. Router */}
-              <Routes>
-                {/* This route is for home component with exact path "/", in component props we passes the imported component*/}
-                    <Route path="/login" element= {<Login/>}/>
-                    <Route path="/" element={<Template />} >
-                    <Route index element={<Home />} />
-                    <Route path="/my_employee" element={<My_employee />} />
-                    <Route path = "/my_sales" element={<My_sales />} />
-                    <Route path = "/my_purchase" element={<My_purchase />} />
-                    <Route path = "/invoice" element={<Invoice />} />
-                    <Route path = "/sale_invoice" element={<Sale_invoice />} />
-                    <Route path = "/purchase_invoice" element={<Purchase_invoice />} />
-                    <Route path = "/invoice_setting" element={<Invoice_setting />} />
-                    <Route path = "/sales_return" element={<Sales_return />} />
-                    <Route path = "/purchase_return" element={<Purchase_return />} />
-                    <Route path = "/my_customer" element={<My_customer />} />
-                    <Route path = "/my_distributor" element={<My_distributor />} />
-                    <Route path = "/scheme_dashboard" element={<Scheme_dashboard />} />
-                    <Route path = "/add_your_scheme" element={<Add_your_scheme />} />
-                    <Route path = "/my_earnings" element={<My_earnings />} />
-                    <Route path = "/my_earnings" element={<My_earnings />} />
-                    </Route>
- 
- 
-                </Routes>
-      </BrowserRouter>
-    
-     
-    
+
+    <BrowserRouter>
+      {/* This is the alias of BrowserRouter i.e. Router */}
+      <Routes>
+        {/* This route is for home component with exact path "/", in component props we passes the imported component*/}
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Template />} >
+          <Route index element={<Home />} />
+          <Route path="/my_employee" element={<My_employee />} />
+          <Route path="/my_sales" element={<My_sales />} />
+          <Route path="/my_purchase" element={<My_purchase />} />
+          <Route path="/invoice" element={<Invoice />} />
+          <Route path="/sale_invoice" element={<Sale_invoice />} />
+          <Route path="/purchase_invoice" element={<Purchase_invoice />} />
+          <Route path="/invoice_setting" element={<Invoice_setting />} />
+          <Route path="/sales_return" element={<Sales_return />} />
+          <Route path="/purchase_return" element={<Purchase_return />} />
+          <Route path="/my_customer" element={<My_customer />} />
+          <Route path="/my_distributor" element={<My_distributor />} />
+          <Route path="/scheme_dashboard" element={<Scheme_dashboard />} />
+          <Route path="/add_your_scheme" element={<Add_your_scheme />} />
+          <Route path="/my_earnings" element={<My_earnings />} />
+          <Route path="/ledger" element={<Ledger />} />
+          <Route path="/imei_tracker" element={<IMEI_tracker />} />
+        </Route>
+
+
+      </Routes>
+    </BrowserRouter>
+
+
+
   );
 }
 
