@@ -76,6 +76,18 @@ export default class Sidebar extends Component {
               </div>
             </li>
             <li className="nav-item">
+              <Link to="/ledger" className="nav-link" >
+                <i className="icon-grid menu-icon" />
+                <span className="menu-title">Ledger</span>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/imei_tracker" className="nav-link" >
+                <i className="icon-grid menu-icon" />
+                <span className="menu-title">IMEI_TRACKER</span>
+              </Link>
+            </li>
+            <li className="nav-item">
               <a className="nav-link" data-bs-toggle="collapse" href="#editors" aria-expanded="false" aria-controls="editors">
                 <i className="icon-book menu-icon" />
                 <span className="menu-title">My Returns</span>
@@ -122,18 +134,6 @@ export default class Sidebar extends Component {
                   <li className="nav-item"><a className="nav-link" href="<?php echo base_url();?>my_retailer_types">My Retailer Types</a></li>
                 </ul>
               </div>
-            </li>
-            <li className="nav-item">
-              <Link to="/ledger" className="nav-link" >
-                <i className="icon-grid menu-icon" />
-                <span className="menu-title">Ledger</span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/imei_tracker" className="nav-link" >
-                <i className="icon-grid menu-icon" />
-                <span className="menu-title">IMEI_TRACKER</span>
-              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="<?php echo base_url();?>welcome">
