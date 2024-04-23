@@ -20,6 +20,7 @@ import My_earnings from './components/my_earnings.js';
 import Ledger from './components/ledger.js';
 import IMEI_tracker from './components/imei_tracker.js';
 import Template from './components/template';
+import Retailer_profile from './components/retailer_profile.js';
 
 import { BrowserRouter } from 'react-router-dom';
 // importing components from react-router-dom package
@@ -43,6 +44,7 @@ function App() {
         <Route path="/" element={<Template />} >
           <Route index element={<Home />} />
           <Route path="/my_employee" element={<My_employee />} />
+          <Route path="/My_Profile" element={<Retailer_profile/>} />
           <Route path="/my_sales" element={<My_sales />} />
           <Route path="/my_purchase" element={<My_purchase />} />
           <Route path="/invoice" element={<Invoice />} />

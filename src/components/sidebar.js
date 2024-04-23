@@ -136,6 +136,12 @@ export default class Sidebar extends Component {
               </Link>
             </li>
             <li className="nav-item">
+              <Link to="/My_Profile" className="nav-link" >
+                <i className="icon-grid menu-icon" />
+                <span className="menu-title">My Profile</span>
+              </Link>
+            </li>
+            <li className="nav-item">
               <a className="nav-link" href="<?php echo base_url();?>welcome">
                 <i className="icon-power menu-icon" />
                 <span className="menu-title">Logout</span>

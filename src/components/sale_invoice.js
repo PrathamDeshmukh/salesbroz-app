@@ -1,6 +1,27 @@
-import React, { Component } from 'react'
-export default class Sale_invoice extends Component {
-  render() {
+import axios from "axios"
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+export default function Sales_invoice() {
+
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        getUsers();
+    }, []);
+
+    function getUsers() {
+        axios.get('http://localhost/salesbroz_react_app/users/').then(function(response) {
+            console.log(response.data);
+            setUsers(response.data);
+        });
+    }
+
+    const deleteUser = (id) => {
+        axios.delete(`http://localhost/salesbroz_react_app/user/${id}/delete`).then(function(response){
+            console.log(response.data);
+            getUsers();
+        });
+    }
     return (
       <div>
   <div className="row">
@@ -73,22 +94,37 @@ export default class Sale_invoice extends Component {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>02/02/2024</td>
-                  <td>01</td>
-                  <td>Yes</td>
-                  <td>Ajay</td>
-                  <td>1234567898</td>
-                  <td> 30000</td>
-                  <td>2000</td>
-                  <td>Cash</td>
-                  <td>
-                    <button className="btn btn-outline-primary">ViewUpdate<br />Payments</button>
-                  </td>
-                  <td>
+
+
+
+              {users.map((user, key) =>
+                        <tr key={key}>
+                            <td>{user.date}</td>
+                            <td>{user.invoice_no}</td>
+                            <td>{user.c_paid}</td>
+                            <td>{user.c_name}</td>
+                            <td>{user.c_phone}</td>
+                            <td>{user.c_amount}</td>
+                            <td>{user.pending_amount}</td>
+                            <td>{user.pay_mode}</td>
+                            <td>
+                                <Link to={`user/${user.id}/edit`} style={{marginRight: "10px"}}>Edit</Link>
+                                <button onClick={() => deleteUser(user.id)}>Delete</button>
+                            </td>
+                            <td>
                     <button className="btn btn-outline-primary">View Products</button>
                   </td>
-                </tr>
+                        </tr>
+                    )}
+
+
+
+
+
+
+
+
+              
               </tbody>
             </table>
             <nav>
@@ -109,7 +145,5 @@ export default class Sale_invoice extends Component {
 </div>
 
 
-
-    );
-}
+)
 }
