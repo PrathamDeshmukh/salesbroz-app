@@ -10,6 +10,8 @@ import Invoice from './components/invoice.js';
 import Sale_invoice from './components/sale_invoice.js';
 import Purchase_invoice from './components/purchase_invoice.js';
 import Invoice_setting from './components/invoice_setting.js';
+import Ledger from './components/ledger.js';
+import IMEI_tracker from './components/imei_tracker.js';
 import Sales_return from './components/sales_return.js';
 import Purchase_return from './components/purchase_return.js';
 import My_customer from './components/my_customer.js';
@@ -17,8 +19,6 @@ import My_distributor from './components/my_distributor.js';
 import Scheme_dashboard from './components/scheme_dashboard.js';
 import Add_your_scheme from './components/add_your_scheme.js';
 import My_earnings from './components/my_earnings.js';
-import Ledger from './components/ledger.js';
-import IMEI_tracker from './components/imei_tracker.js';
 import Template from './components/template';
 import Retailer_profile from './components/retailer_profile.js';
 
@@ -51,6 +51,8 @@ function App() {
           <Route path="/sale_invoice" element={<Sale_invoice />} />
           <Route path="/purchase_invoice" element={<Purchase_invoice />} />
           <Route path="/invoice_setting" element={<Invoice_setting />} />
+          <Route path="/ledger" element={<Ledger />} />
+          <Route path="/imei_tracker" element={<IMEI_tracker />} />
           <Route path="/sales_return" element={<Sales_return />} />
           <Route path="/purchase_return" element={<Purchase_return />} />
           <Route path="/my_customer" element={<My_customer />} />
@@ -58,8 +60,7 @@ function App() {
           <Route path="/scheme_dashboard" element={<Scheme_dashboard />} />
           <Route path="/add_your_scheme" element={<Add_your_scheme />} />
           <Route path="/my_earnings" element={<My_earnings />} />
-          <Route path="/ledger" element={<Ledger />} />
-          <Route path="/imei_tracker" element={<IMEI_tracker />} />
+         
         </Route>
 
 
