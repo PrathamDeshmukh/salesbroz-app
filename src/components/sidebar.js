@@ -150,7 +150,7 @@ export default class Sidebar extends Component {
             <li className="nav-item">
               <Link to="/My_Profile" className="nav-link" >
                 <i className="icon-grid menu-icon" />
-                <span className="menu-title">My Profile</span>
+                <span className="menu-title">My Retailer</span>
               </Link>
             </li>
             <li className="nav-item">
