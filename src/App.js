@@ -21,6 +21,8 @@ import Add_your_scheme from './components/add_your_scheme.js';
 import My_earnings from './components/my_earnings.js';
 import Template from './components/template';
 import Retailer_profile from './components/retailer_profile.js';
+import My_stock from './components/my_stock.js';
+import Add_your_model from './components/add_your_model.js';
 
 import { BrowserRouter } from 'react-router-dom';
 // importing components from react-router-dom package
@@ -43,6 +45,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Template />} >
           <Route index element={<Home />} />
+          <Route path="/my_stock" element={<My_stock/>} />
+          <Route path="/add_model" element={<Add_your_model/>} />
           <Route path="/my_employee" element={<My_employee />} />
           <Route path="/My_Profile" element={<Retailer_profile/>} />
           <Route path="/my_sales" element={<My_sales />} />

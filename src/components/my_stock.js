@@ -1,22 +1,26 @@
-import React, { Component } from 'react'
-export default class My_employee extends Component {
-  render() {
-    return (
-       <div className="row">
-  <div className="col-md-12 grid-margin transparent">
-    <div className="row">
-      <div className="col-md-6 mb-4  transparent">
-        <h2 className="font-weight-bold">All Employees</h2>
-      </div>
-      <div className="col-md-6 mb-4  transparent">
-       
-      
-        <button type="button" className="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-           Add Employee
+import React from 'react'
+
+export default function My_stock() {
+  return (
+   <div>
+  <div className="row">
+    <div className="col-md-12 grid-margin transparent">
+      <div className="card">
+        <div className="card-body">
+          <div className="row">
+            <div className="col-md-6 mb-4 stretch-card transparent">
+              <input type="text" className="form-control p-2" name="tags" id="tags" placeholder="Filter Here" defaultValue />
+            </div>
+            <div className="col-md-6 mb-4 transparent">
+          
+              <button type="button" className="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              + Add Stocks
         </button>
 
+
+
      {/* Modal */}
-<div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="staticBackdropLabel" aria-hidden="true">
+     <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div className="modal-dialog  ">
     <div className="modal-content">
       <div className="modal-header">
@@ -133,6 +137,53 @@ export default class My_employee extends Component {
 
 
 
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12">
+              <div className="popover-static-demo">                   
+                <div className="popover bs-popover-bottom bs-popover-bottom-demo popover-info">
+                  <div className="arrow" />
+                  <h3 className="popover-header">Mobiles</h3>
+                  <div className="popover-body">
+                    <p>Total Count  :  4</p><br />
+                    <p>Total Value  :  49,978</p>
+                  </div>
+                </div>
+                <div className="popover bs-popover-bottom bs-popover-bottom-demo popover-warning">
+                  <div className="arrow" />
+                  <h3 className="popover-header">Accessories</h3>
+                  <div className="popover-body">
+                    <p>Total Count  :  -</p><br />
+                    <p>Total Value  :  -</p>
+                  </div>
+                </div>
+                <div className="popover bs-popover-bottom bs-popover-bottom-demo popover-primary">
+                  <div className="arrow" />
+                  <h3 className="popover-header">Overall</h3>
+                  <div className="popover-body">
+                    <p>Total Count  :  4</p><br />
+                    <p>Total Value  :  49,978</p>
+                  </div>
+                </div> 
+                <div className="clearfix" />
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-6 stretch-card transparent">
+              Showing Stocks Data for
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-6 mb-2 transparent float-end">
+              <input type="text" className="form-control p-2" placeholder="Search Stock" defaultValue />
+            </div>
+            <div className="col-md-6 mb-2 transparent">
+              <a className="btn btn-primary float-end" href>Export to Excel</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -143,61 +194,63 @@ export default class My_employee extends Component {
           <div className="table-responsive">
             <table className="table table-striped table-borderless">
               <thead>
-                <tr>
-                  <th>Employee ID</th>
-                  <th>Name</th>
-                  <th>Contact</th>
-                  <th>Password</th>
-                  <th>Age</th>
-                  <th>Adhar Number</th>
-                  <th>Address</th>
-                  <th>Sale <br />Permission</th>
-                  <th>Purchases <br /> Permission</th>
-                  <th>Create At</th>
-                  <th>Update At</th>
-                  <th>Sale Action</th>
-                  <th>Purchase Action</th>
+                <tr><th>XIAOMI 27,998(2 units)</th>
+                </tr><tr>
+                  <th>Model</th>
+                  <th>Quantity</th>
+                  <th>Total Value</th>
+                  <th>Settings</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>01</td>
-                  <td>Ajay</td>
-                  <td>1234567890</td>
-                  <td>123</td>
-                  <td>23</td>
-                  <td>565654543434</td>
-                  <td>yes</td>
-                  <td>yes</td>
-                  <td>25/2/2024</td>
-                  <td>25/2/2024</td>
-                  <td><a className="btn btn-primary float-end" href="#">
-                      Allow Sale Permission</a><a>
-                    </a></td>
-                  <td><a className="btn btn-primary float-end" href="#">Purchase Allow</a>
-                  </td>
+                <tr>
+                  <td>Poco M2 Pro 4/64GB</td>
+                  <td>2</td>
+                  <td>27,998</td>
+                  <td>Show IMEIs</td>
                 </tr>
               </tbody>
             </table>
-            <nav>
-              <ul className="pagination flex-wrap">
-                <li className="page-item"><a className="page-link" href="#"><i className="ti-angle-left" /></a></li>
-                <li className="page-item active"><a className="page-link" href="#">1</a></li>
-                <li className="page-item"><a className="page-link" href="#">2</a></li>
-                <li className="page-item"><a className="page-link" href="#"><i className="ti-angle-right" /></a></li>
-              </ul>
-            </nav>
           </div>
         </div>
       </div>
     </div>
-  </div></div>
+  </div>
+  <div className="row">
+    <div className="col-md-12 grid-margin stretch-card">
+      <div className="card">
+        <div className="card-body">
+          <div className="table-responsive">
+            <table className="table table-striped table-borderless">
+              <thead>
+                <tr><th>VIVO 21,980(2 units)</th>
+                </tr><tr>
+                  <th>Model</th>
+                  <th>Quantity</th>
+                  <th>Total Value</th>
+                  <th>Settings</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Y20 4/64GB</td>
+                  <td>1</td>
+                  <td>12,990</td>
+                  <td>Show IMEIs</td>
+                </tr><tr>
+                  <td>Y11 3/32GB</td>
+                  <td>1</td>
+                  <td>8,990</td>
+                  <td>Show IMEIs</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-          
-       
-
-    
-        
-
-    );
-  }
+  )
 }

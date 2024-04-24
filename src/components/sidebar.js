@@ -38,6 +38,24 @@ export default class Sidebar extends Component {
                 <span className="menu-title">Dashboard</span>
               </Link>
             </li>
+          <li className="nav-item">
+  <a className="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="editors">
+    <i className="icon-book menu-icon" />
+    <span className="menu-title">Stocks Mgmt</span>
+    <i className="menu-arrow" />
+  </a>
+  <div className="collapse" id="auth">
+    <ul className="nav flex-column sub-menu">
+      <li className="nav-item">
+      <Link to="/my_stock" className="nav-link" >My Stocks</Link></li>
+      <li className="nav-item">
+      <Link to="/stock_audit"  className="nav-link" >Stocks Audit</Link></li>
+      <li className="nav-item">
+      <Link to="/add_model" className="nav-link" >Add your Models</Link></li>
+    </ul>
+  </div>
+</li>
+
             <li className="nav-item">
               <Link to="/my_employee" className="nav-link" >
                 <i className="icon-grid menu-icon" />
