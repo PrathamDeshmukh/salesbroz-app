@@ -24,7 +24,7 @@ export default function My_stock() {
   <div className="modal-dialog  ">
     <div className="modal-content">
       <div className="modal-header">
-        <h3 className="card-description"> Add New Employee info</h3>
+        <h3 className="card-description"> Add New Stock</h3>
         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
       </div>
       <div className="modal-body">

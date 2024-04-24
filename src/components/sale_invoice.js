@@ -2,26 +2,19 @@ import axios from "axios"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Sales_invoice() {
+export default function Sale_invoice() {
 
-    const [users, setUsers] = useState([]);
-    useEffect(() => {
-        getUsers();
-    }, []);
+    // const [users, setUsers] = useState([]);
+    // useEffect(() => {
+    //     getUsers();
+    // }, []);
 
-    function getUsers() {
-        axios.get('http://localhost/salesbroz_react_app/users/').then(function(response) {
-            console.log(response.data);
-            setUsers(response.data);
-        });
-    }
-
-    const deleteUser = (id) => {
-        axios.delete(`http://localhost/salesbroz_react_app/user/${id}/delete`).then(function(response){
-            console.log(response.data);
-            getUsers();
-        });
-    }
+    // function getUsers() {
+    //     axios.get('http://localhost/salesbroz_react_app/get_sale_invoices.php/').then(function(response) {
+    //         console.log(response.data);
+    //         setUsers(response.data);
+    //     });
+    // }
     return (
       <div>
   <div className="row">
@@ -96,26 +89,26 @@ export default function Sales_invoice() {
               <tbody>
 
 
-
-              {users.map((user, key) =>
-                        <tr key={key}>
-                            <td>{user.date}</td>
-                            <td>{user.invoice_no}</td>
-                            <td>{user.c_paid}</td>
-                            <td>{user.c_name}</td>
-                            <td>{user.c_phone}</td>
-                            <td>{user.c_amount}</td>
-                            <td>{user.pending_amount}</td>
-                            <td>{user.pay_mode}</td>
-                            <td>
-                                <Link to={`user/${user.id}/edit`} style={{marginRight: "10px"}}>Edit</Link>
-                                <button onClick={() => deleteUser(user.id)}>Delete</button>
-                            </td>
-                            <td>
-                    <button className="btn btn-outline-primary">View Products</button>
-                  </td>
-                        </tr>
-                    )}
+{/* 
+              {invoices.map((invoice) => (
+            <tr key={invoice.id}>
+              <td>{invoice.date}</td>
+              <td>{invoice.invoice_no}</td>
+              
+              <td>{invoice.c_paid}</td>
+              <td>{invoice.c_name}</td>
+              <td>{invoice.c_phone}</td>
+              <td>{invoice.c_amount}</td>
+              <td>{invoice.pending_amount}</td>
+              <td>{invoice.pay_mode}</td>
+              <td>
+                <Link to={`/${invoice.id}`}>Edit Details</Link>
+              </td>
+              <td>
+                <Link to={`/${invoice.id}`}>View Details</Link>
+              </td>
+            </tr>
+          ))} */}
 
 
 
@@ -143,7 +136,6 @@ export default function Sales_invoice() {
     </div>
   </div>
 </div>
-
 
 )
 }
