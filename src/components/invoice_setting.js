@@ -8,8 +8,8 @@ export default class Invoice_setting extends Component {
       <div className="row">
         <div className="col-12 col-xl-8 mb-4 mb-xl-0">
           <h2 className="font-weight-bold">Invoice Setting</h2><br />
-          <button type=" button "hidden  id="product-btn" className="btn btn-primary ">Purchase Invoice Setting</button>
-          <button type="button" hidden id="sale-btn" className="btn btn-primary active ">Sales Invoice Setting</button>
+          <button type=" button "hidden  id="first-active-btn" className="btn btn-primary ">Purchase Invoice Setting</button>
+          <button type="button" hidden id="second-active-btn" className="btn btn-primary active ">Sales Invoice Setting</button>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@ export default class Invoice_setting extends Component {
     <div className="col-md-12 grid-margin">
       <div className="row">
         <div className="col-12 col-xl-12 mb-4 mb-xl-0">
-          <div id="product-section">
+          <div id="first-active-section">
             {/* Product table will be loaded here */}
             <div className="card">
               <div className="card-body">
@@ -66,10 +66,12 @@ export default class Invoice_setting extends Component {
                       <div className="form-group row">
                         <div className="col-sm-4">
                           <div className="form-check">
-                            <label className="form-check-label">
-                              <input className="form-check-input" type="checkbox" defaultValue id="defaultCheck1" />
-                              Send SMS invoice copy to Customer
-                            </label>
+                          <label className="form-check-label">
+  <input type="checkbox" className="form-check-input" />
+  Send SMS invoice copy to Customer
+</label>
+
+                            
                           </div>
                         </div>
                       </div>
@@ -128,7 +130,7 @@ export default class Invoice_setting extends Component {
                       </div>
                     </div>
                   </div>
-                  <button type="submit" id="product-btn" className="submit-button btn btn-primary ">Purchase Invoice Setting</button>
+                  <button type="submit" id="first-active-btn" className="submit-button btn btn-primary ">Purchase Invoice Setting</button>
                 </form>
               </div>
             </div>
@@ -136,11 +138,14 @@ export default class Invoice_setting extends Component {
       </div>
     </div>
   </div>
+  {/* first-active-section */}
+ 
+  {/* second-active-section */}
   <div className="row">
     <div className="col-md-12 grid-margin">
       <div className="row">
         <div className="col-12 col-xl-12 mb-4 mb-xl-0">
-          <div id="sale-section" style={{display: 'none'}}>
+          <div id="second-active-section" style={{display: 'none'}}>
             {/* Sale table will be loaded here */}
             <div className="card">
               <div className="card-body">
