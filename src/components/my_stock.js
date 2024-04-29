@@ -81,7 +81,7 @@ export default function My_stock() {
             </div>
             <div className="col-md-6">
               <div className="form-group">
-                <label htmlFor="exampleInputUsername1">Adhar Number:</label>
+                <label htmlFor="exampleInputUsername1">Aadhar Number:</label>
                 <input type="text" name="adhar_no" className="form-control form-control-sm" id="exampleInputUsername1" />
               </div>
             </div>
