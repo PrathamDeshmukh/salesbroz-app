@@ -22,6 +22,7 @@ import My_earnings from './components/my_earnings.js';
 import Template from './components/template';
 import Retailer_profile from './components/retailer_profile.js';
 import My_stock from './components/my_stock.js';
+import Stock_Audit from './components/stock_audit.js';
 import Add_your_model from './components/add_your_model.js';
 
 import { BrowserRouter } from 'react-router-dom';
@@ -46,6 +47,7 @@ function App() {
         <Route path="/" element={<Template />} >
           <Route index element={<Home />} />
           <Route path="/my_stock" element={<My_stock/>} />
+          <Route path="/stock_audit" element={<Stock_Audit/>} />
           <Route path="/add_model" element={<Add_your_model/>} />
           <Route path="/my_employee" element={<My_employee />} />
           <Route path="/My_Profile" element={<Retailer_profile/>} />
