@@ -102,7 +102,7 @@ const Purchases_invoice= () => {
           onClick={() => toggleTable('first')} className="btn btn-outline-secondary btn-lg btn-block ">With Models</button>
           &nbsp; &nbsp; &nbsp;<button type="button"  id="second_btn"
           style={{ fontWeight: activeBtn === 'second' ? 'bold' : 'normal' }} 
-          onClick={() => toggleTable('second')} className="btn btn-outline-secondary btn-lg btn-block active ">Without Models</button>
+          onClick={() => toggleTable('second')} className="btn btn-outline-secondary btn-lg btn-block  ">Without Models</button>
         
     </div>
   </div>
