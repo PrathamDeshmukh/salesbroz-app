@@ -4,7 +4,7 @@ import axios from 'axios';
 const MyEmployee = () => {
   const [employees, setEmployees] = useState([]);
   const tableName = 'employee'; // Specify the table name here
-
+ 
   useEffect(() => {
       axios.post(`http://localhost/salesbroz_react_app/get_tableData.php`, { table: tableName })
           .then(response => {
@@ -14,13 +14,23 @@ const MyEmployee = () => {
               console.error('Error fetching data: ', error);
           });
   }, [tableName]);
+
+
+ 
   const [formData, setFormData] = useState({
     name: '',
+    phone: '',
     age: '',
-    address: '',
-    aadhar_no: ''
+    address: ' ',
+    aadhar_no: ' ',
+    sale_permission: ' ',
+    purchase_permission: ' ',
+    password:''
+    
 });
-
+const [c_pass, setc_pass] = useState('');
+const [successMessage, setSuccessMessage] = useState('');
+const [errorMessage, setErrorMessage] = useState('');
 const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -29,25 +39,41 @@ const handleChange = (e) => {
     }));
 };
 
-const handleSubmit = async (e) => {
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (formData.password !== c_pass) {
+        setErrorMessage("Passwords do not match");
+        setSuccessMessage('');
+        return;
+    }
+
+    setErrorMessage('');
+
     try {
-        const response = await axios.post('http://localhost/api.php', {
-            table: 'employees',
+        const response = await axios.post('http://localhost/salesbroz_react_app/post_tableData.php', {
+            table: 'employee',
             fields: formData
         });
         console.log(response.data); // Output: New record created successfully
+        setSuccessMessage("Data added successfully");
         // Optionally, reset the form fields after successful submission
         setFormData({
             name: '',
             age: '',
             address: '',
-            aadhar_no: ''
+            aadhar_no: '',
+            password: ''
         });
+        setc_pass('');
     } catch (error) {
         console.error('Error inserting data: ', error);
+        setErrorMessage("Error: Unable to add data");
+        setSuccessMessage('');
     }
-  }
+};
 
 
 
@@ -61,6 +87,8 @@ const handleSubmit = async (e) => {
     <div className="row">
       <div className="col-md-6 mb-4  transparent">
         <h2 className="font-weight-bold">All Employees</h2>
+       
+           
       </div>
       <div className="col-md-6 mb-4  transparent">
        
@@ -75,9 +103,12 @@ const handleSubmit = async (e) => {
     <div className="modal-content">
       <div className="modal-header">
         <h3 className="card-description"> Add New Employee info</h3>
+        
         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
       </div>
       <div className="modal-body">
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+            {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
 
 
 
@@ -91,19 +122,19 @@ const handleSubmit = async (e) => {
     {/* Product table will be loaded here */}
     <div className="card">
       <div className="card-body">
-        <form className="form-sample" >
+        <form onSubmit={handleSubmit} className="form-sample" >
          
           <div className="row">
             <div className="col-md-6">
               <div className="form-group">
                 <label htmlFor="exampleInputUsername1">Employee Full Name:</label>
-                <input type="text" name="e_name" className="form-control form-control-sm" id="exampleInputUsername1" />
+                <input type="text" name="name" className="form-control form-control-sm" value={formData.name} onChange={handleChange} required/>
               </div>
             </div>
             <div className="col-md-6">
               <div className="form-group">
                 <label htmlFor="exampleInputUsername1">Contact Number:</label>
-                <input type="text" name="e_phone" className="form-control form-control-sm" id="exampleInputUsername1" />
+                <input type="text" name="phone" className="form-control form-control-sm" value={formData.phone} onChange={handleChange} required/>
               </div>
             </div>
           </div>
@@ -111,13 +142,13 @@ const handleSubmit = async (e) => {
             <div className="col-md-6">
               <div className="form-group">
                 <label htmlFor="exampleInputUsername1">Create Password:</label>
-                <input type="password" name="password" className="form-control form-control-sm" id="exampleInputUsername1" />
+                <input type="password" name="password" className="form-control form-control-sm" value={formData.password} onChange={handleChange} required/>
               </div>
             </div>
             <div className="col-md-6">
               <div className="form-group">
                 <label htmlFor="exampleInputUsername1">Confirm Password:</label>
-                <input type="password" name="c_pass" className="form-control form-control-sm" id="exampleInputUsername1" />
+                <input type="password" name="c_pass" className="form-control form-control-sm"  value={c_pass} onChange={(e) => setc_pass(e.target.value)} required/>
               </div>
             </div>
           </div>
@@ -125,13 +156,13 @@ const handleSubmit = async (e) => {
             <div className="col-md-6">
               <div className="form-group">
                 <label htmlFor="exampleInputUsername1">Age:</label>
-                <input type="text" name="e_age" className="form-control form-control-sm" id="exampleInputUsername1" />
+                <input type="text" name="age" className="form-control form-control-sm" value={formData.age} onChange={handleChange} required/>
               </div>
             </div>
             <div className="col-md-6">
               <div className="form-group">
                 <label htmlFor="exampleInputUsername1">Adhar Number:</label>
-                <input type="text" name="adhar_no" className="form-control form-control-sm" id="exampleInputUsername1" />
+                <input type="text" name="aadhar_no" className="form-control form-control-sm" value={formData.aadhar_no} onChange={handleChange} required/>
               </div>
             </div>
           </div>
@@ -139,7 +170,7 @@ const handleSubmit = async (e) => {
             <div className="col-md-12">
               <div className="form-group">
                 <label htmlFor="exampleInputUsername1">Address:</label>
-                <input type="text" name="e_address" className="form-control form-control-sm" id="exampleInputUsername1" />
+                <input type="text" name="address" className="form-control form-control-sm" value={formData.address} onChange={handleChange} required/>
               </div>
             </div>
           </div>
@@ -147,7 +178,7 @@ const handleSubmit = async (e) => {
             <div className="col-md-12">
               <div className="form-group">
                 <label htmlFor="exampleFormControlSelect1">Allow sales Permissions:</label>
-                <select name="sale_permission" className="form-control form-control-sm" id="exampleFormControlSelect1">
+                <select name="sale_permission" className="form-control form-control-sm" value={formData.sale_permission} onChange={handleChange} required>
                   <option>Select</option>
                   <option>Yes</option>
                   <option>No</option>
@@ -155,7 +186,7 @@ const handleSubmit = async (e) => {
               </div>
               <div className="form-group">
                 <label htmlFor="exampleFormControlSelect2">Allow Purchase Permissions:</label>
-                <select name="purchase_permission" className="form-control form-control-sm" id="exampleFormControlSelect2">
+                <select name="purchase_permission" className="form-control form-control-sm" value={formData.purchase_permission} onChange={handleChange} required>
                   <option>Select</option>
                   <option>Yes</option>
                   <option>No</option>
@@ -220,13 +251,13 @@ const handleSubmit = async (e) => {
               {employees.map(employee => (
             <tr key={employee.id}>
               <td>{employee.id}</td>
-              <td>{employee.e_name}</td>
+              <td>{employee.name}</td>
               
-              <td>{employee.e_phone}</td>
+              <td>{employee.phone}</td>
               <td>{employee.password}</td>
-              <td>{employee.e_age}</td>
-              <td>{employee.adhar_no}</td>
-              <td>{employee.e_address}</td>
+              <td>{employee.age}</td>
+              <td>{employee.aadhar_no}</td>
+              <td>{employee.address}</td>
               <td>{employee.sale_permission}</td>
               <td>{employee.purchase_permission}</td>
               <td>{employee.create_at}</td>
