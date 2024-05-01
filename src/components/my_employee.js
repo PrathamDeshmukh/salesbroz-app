@@ -1,6 +1,60 @@
-import React, { Component } from 'react'
-export default class My_employee extends Component {
-  render() {
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const MyEmployee = () => {
+  const [employees, setEmployees] = useState([]);
+  const tableName = 'employee'; // Specify the table name here
+
+  useEffect(() => {
+      axios.post(`http://localhost/salesbroz_react_app/get_tableData.php`, { table: tableName })
+          .then(response => {
+              setEmployees(response.data);
+          })
+          .catch(error => {
+              console.error('Error fetching data: ', error);
+          });
+  }, [tableName]);
+  const [formData, setFormData] = useState({
+    name: '',
+    age: '',
+    address: '',
+    aadhar_no: ''
+});
+
+const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+        ...prevState,
+        [name]: value
+    }));
+};
+
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+        const response = await axios.post('http://localhost/api.php', {
+            table: 'employees',
+            fields: formData
+        });
+        console.log(response.data); // Output: New record created successfully
+        // Optionally, reset the form fields after successful submission
+        setFormData({
+            name: '',
+            age: '',
+            address: '',
+            aadhar_no: ''
+        });
+    } catch (error) {
+        console.error('Error inserting data: ', error);
+    }
+  }
+
+
+
+
+
+
+
     return (
        <div className="row">
   <div className="col-md-12 grid-margin transparent">
@@ -160,22 +214,31 @@ export default class My_employee extends Component {
                 </tr>
               </thead>
               <tbody>
-                <tr><td>01</td>
-                  <td>Ajay</td>
-                  <td>1234567890</td>
-                  <td>123</td>
-                  <td>23</td>
-                  <td>565654543434</td>
-                  <td>yes</td>
-                  <td>yes</td>
-                  <td>25/2/2024</td>
-                  <td>25/2/2024</td>
-                  <td><a className="btn btn-primary float-end" href="#">
+
+
+
+              {employees.map(employee => (
+            <tr key={employee.id}>
+              <td>{employee.id}</td>
+              <td>{employee.e_name}</td>
+              
+              <td>{employee.e_phone}</td>
+              <td>{employee.password}</td>
+              <td>{employee.e_age}</td>
+              <td>{employee.adhar_no}</td>
+              <td>{employee.e_address}</td>
+              <td>{employee.sale_permission}</td>
+              <td>{employee.purchase_permission}</td>
+              <td>{employee.create_at}</td>
+              <td>{employee.update_at}</td>
+              <td><a className="btn btn-primary float-end" href="#">
                       Allow Sale Permission</a><a>
                     </a></td>
                   <td><a className="btn btn-primary float-end" href="#">Purchase Allow</a>
                   </td>
-                </tr>
+            </tr>
+          ))}
+                
               </tbody>
             </table>
             <nav>
@@ -196,8 +259,7 @@ export default class My_employee extends Component {
        
 
     
-        
+);
+};
 
-    );
-  }
-}
+export default MyEmployee;

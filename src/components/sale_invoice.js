@@ -1,20 +1,19 @@
-import axios from "axios"
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-export default function Sale_invoice() {
+const SaleInvoice = () => {
+  const [invoices, setInvoices] = useState([]);
+  const tableName = 'sale_invoice'; // Specify the table name here
 
-  // const [users, setUsers] = useState([]);
-  // useEffect(() => {
-  //     getUsers();
-  // }, []);
-
-  // function getUsers() {
-  //     axios.get('http://localhost/salesbroz_react_app/get_sale_invoices.php/').then(function(response) {
-  //         console.log(response.data);
-  //         setUsers(response.data);
-  //     });
-  // }
+  useEffect(() => {
+      axios.post(`http://localhost/salesbroz_react_app/get_tableData.php`, { table: tableName })
+          .then(response => {
+              setInvoices(response.data);
+          })
+          .catch(error => {
+              console.error('Error fetching data: ', error);
+          });
+  }, [tableName]);
   return (
     <div>
       <div className="row">
@@ -192,8 +191,8 @@ export default function Sale_invoice() {
                 <tr>
                   <th>Date</th>
                   <th>Bill No.</th>
-                  <th>Vendor<br />Name</th>
-                  <th>Vendor<br />Phone</th>
+                  <th>Customer<br />Name</th>
+                  <th>Customer<br />Phone</th>
                   <th>Paid</th>
                   <th>Amount</th>
                   <th>Pending<br />Amount</th>
@@ -203,22 +202,28 @@ export default function Sale_invoice() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>02/02/2024</td>
-                  <td>01</td>
-                  <td>Ajay</td>
-                  <td>9876543234</td>
-                  <td>yes</td>
-                  <td>70000</td>
-                  <td>5000</td>
-                  <td>Cash</td>
-                  <td>
+
+
+
+              {invoices.map(invoice => (
+            <tr key={invoice.id}>
+              <td>{invoice.date}</td>
+              <td>{invoice.bill_no}</td>
+              <td>{invoice.c_name}</td>
+              <td>{invoice.c_phone}</td>
+              <td>{invoice.c_paid}</td>
+              <td>{invoice.c_amount}</td>
+              <td>{invoice.pending_amount}</td>
+              <td>{invoice.pay_mode}</td>
+              <td>
                     <button className="btn btn-outline-primary">ViewUpdate<br />Payments</button>
                   </td>
                   <td>
                     <button className="btn btn-outline-primary">View Products</button>
                   </td>
-                </tr>
+            </tr>
+          ))}
+                
               </tbody>
             </table>
             <nav>
@@ -242,5 +247,7 @@ export default function Sale_invoice() {
 </div>
 </div>
 
-    );
-}
+);
+};
+
+export default SaleInvoice;

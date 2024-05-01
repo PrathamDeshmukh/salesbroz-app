@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Purchases_invoice= () => {
   const [activeBtn, setActiveBtn] = useState('first');
@@ -6,6 +7,19 @@ const Purchases_invoice= () => {
   const toggleTable = (btn) => {
     setActiveBtn(btn);
   };
+  const [invoices, setInvoices] = useState([]);
+  const tableName = 'purchase_invoice'; // Specify the table name here
+
+  useEffect(() => {
+      axios.post(`http://localhost/salesbroz_react_app/get_tableData.php`, { table: tableName })
+          .then(response => {
+              setInvoices(response.data);
+          })
+          .catch(error => {
+              console.error('Error fetching data: ', error);
+          });
+  }, [tableName]);
+
     return (
        <div>
   <div className="row">
@@ -353,22 +367,26 @@ const Purchases_invoice= () => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>02/02/2024</td>
-                  <td>01</td>
-                  <td>Ajay</td>
-                  <td>9876543234</td>
-                  <td>yes</td>
-                  <td>70000</td>
-                  <td>5000</td>
-                  <td>Cash</td>
-                  <td>
+                
+                 
+              {invoices.map(invoice => (
+            <tr key={invoice.id}>
+              <td>{invoice.date}</td>
+              <td>{invoice.bill_no}</td>
+              <td>{invoice.v_name}</td>
+              <td>{invoice.v_phone}</td>
+              <td>{invoice.paid}</td>
+              <td>{invoice.v_amount}</td>
+              <td>{invoice.pending_amount}</td>
+              <td>{invoice.pay_mode}</td>
+              <td>
                     <button className="btn btn-outline-primary">ViewUpdate<br />Payments</button>
                   </td>
                   <td>
                     <button className="btn btn-outline-primary">View Products</button>
                   </td>
-                </tr>
+            </tr>
+          ))}
               </tbody>
             </form>
             <nav>
