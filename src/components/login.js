@@ -15,19 +15,23 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      
      
       const response = await axios.post("http://localhost/salesbroz_react_app/login.php", {
    
         phone:phone,
-        password:password
+        password:password,
+        
       });
       if (response.data.success) {
         // Check if profile status is incomplete
         if (response.data.profile_status === "incomplete") {
+          
           // Redirect to retailer_profile page to complete the profile
+        
           navigate("/My_Profile");
         } else {
-          // Redirect to dashboard
+          // Redirect to dashbo
           navigate("/");
         }
       } else {
