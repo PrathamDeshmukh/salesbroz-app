@@ -24,6 +24,7 @@ import Retailer_profile from './components/retailer_profile.js';
 import My_stock from './components/my_stock.js';
 import Stock_Audit from './components/stock_audit.js';
 import Add_your_model from './components/add_your_model.js';
+import Logout from './components/logout.js';
 
 import { BrowserRouter } from 'react-router-dom';
 // importing components from react-router-dom package
@@ -66,6 +67,7 @@ function App() {
           <Route path="/scheme_dashboard" element={<Scheme_dashboard />} />
           <Route path="/add_your_scheme" element={<Add_your_scheme />} />
           <Route path="/my_earnings" element={<My_earnings />} />
+          <Route path="/logout" element={<Logout />} />
          
         </Route>
 

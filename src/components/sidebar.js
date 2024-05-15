@@ -172,10 +172,10 @@ export default class Sidebar extends Component {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="<?php echo base_url();?>welcome">
+            <Link to="/logout" className="nav-link" >
                 <i className="icon-power menu-icon" />
                 <span className="menu-title">Logout</span>
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
