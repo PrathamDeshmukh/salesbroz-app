@@ -1,6 +1,7 @@
 
 
 import Login from './components/login.js';
+import Signup from './components/signup.js';
 
 import Home from './components/home.js';
 import My_employee from './components/my_employee.js';
@@ -45,6 +46,7 @@ function App() {
       <Routes>
         {/* This route is for home component with exact path "/", in component props we passes the imported component*/}
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Template />} >
           <Route index element={<Home />} />
           <Route path="/my_stock" element={<My_stock/>} />

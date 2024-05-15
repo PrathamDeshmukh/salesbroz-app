@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import { useNavigate } from "react-router-dom";
 
@@ -66,7 +67,7 @@ const Login = () => {
             <a href="#" className="auth-link text-black">Forgot password?</a>
           </div>
           <div className="text-center mt-4 font-weight-light">
-            Don't have an account? <a href="<?php base_url()?>signup" className="text-primary">Create</a>
+            Don't have an account?   <Link to="/signup" className="text-primary">Create</Link>
           </div>
         </form>
       </div>
