@@ -75,6 +75,28 @@ const handleChange = (e) => {
     }
 };
 
+const updatePermission = (id, field, value) => {
+  axios.post('http://localhost/salesbroz_react_app/updateEmployee.php', {
+    id,
+    field,
+    value
+  })
+  .then(response => {
+    // Update the state to reflect changes
+    setEmployees(employees.map(emp => emp.id === id ? { ...emp, [field]: value } : emp));
+  })
+  .catch(error => {
+    console.error('There was an error updating the employee permission!', error);
+  });
+};
+const handlePermissionChange = (id, field, value) => {
+  const action = value === 'yes' ? 'allow' : 'deny';
+  const permissionType = field === 'sale_permission' ? 'sales' : 'purchase';
+
+  if (window.confirm(`Are you sure you want to ${action} ${permissionType} permission?`)) {
+    updatePermission(id, field, value);
+  }
+};
 
 
 
@@ -107,9 +129,7 @@ const handleChange = (e) => {
         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
       </div>
       <div className="modal-body">
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-            {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
-
+      
 
 
 
@@ -193,8 +213,15 @@ const handleChange = (e) => {
                 </select>
               </div>
             </div>
+            {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+            {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
+
           </div>
-          <button type="submit" id="product-btn" className="submit-button btn btn-primary ">Add </button>
+          
+          <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" id="product-btn" className="submit-button btn btn-primary ">Add </button>
+      </div>
         </form>
       </div>
     </div>
@@ -206,10 +233,7 @@ const handleChange = (e) => {
 
         
       </div>
-      <div className="modal-footer">
-        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary">Understood</button>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -229,6 +253,10 @@ const handleChange = (e) => {
             <table className="table table-striped table-borderless">
               <thead>
                 <tr>
+                <th>Sale Action</th>
+                  <th>Purchase Action</th>
+                  <th>Sale <br />Permission</th>
+                  <th>Purchases <br /> Permission</th>
                   <th>Employee ID</th>
                   <th>Name</th>
                   <th>Contact</th>
@@ -236,12 +264,10 @@ const handleChange = (e) => {
                   <th>Age</th>
                   <th>Adhar Number</th>
                   <th>Address</th>
-                  <th>Sale <br />Permission</th>
-                  <th>Purchases <br /> Permission</th>
+                 
                   <th>Create At</th>
                   <th>Update At</th>
-                  <th>Sale Action</th>
-                  <th>Purchase Action</th>
+                 
                 </tr>
               </thead>
               <tbody>
@@ -250,6 +276,28 @@ const handleChange = (e) => {
 
               {employees.map(employee => (
             <tr key={employee.id}>
+              <td>
+              {employee.sale_permission === 'yes' ? (
+                <button   type="button" class="btn btn-danger btn-rounded btn-fw"
+                onClick={() => handlePermissionChange(employee.id, 'sale_permission', 'no')}>Deny </button>
+              ) : (
+                <button   type="button" class="btn btn-primary btn-rounded btn-fw"
+                onClick={() => handlePermissionChange(employee.id, 'sale_permission', 'yes')}>Allow </button>
+              )}
+               
+              </td>
+              <td>
+              {employee.purchase_permission === 'yes' ? (
+                <button  type="button" class="btn btn-danger btn-rounded btn-fw"
+                 onClick={() => handlePermissionChange(employee.id, 'purchase_permission', 'no')}>Deny </button>
+              ) : (
+                <button  type="button" class="btn btn-primary btn-rounded btn-fw"
+                 onClick={() => handlePermissionChange(employee.id, 'purchase_permission', 'yes')}>Allow</button>
+              )}
+               
+              </td>
+              <td>{employee.sale_permission}</td>
+              <td>{employee.purchase_permission}</td>
               <td>{employee.id}</td>
               <td>{employee.name}</td>
               
@@ -258,15 +306,10 @@ const handleChange = (e) => {
               <td>{employee.age}</td>
               <td>{employee.aadhar_no}</td>
               <td>{employee.address}</td>
-              <td>{employee.sale_permission}</td>
-              <td>{employee.purchase_permission}</td>
+             
               <td>{employee.create_at}</td>
               <td>{employee.update_at}</td>
-              <td><a className="btn btn-primary float-end" href="#">
-                      Allow Sale Permission</a><a>
-                    </a></td>
-                  <td><a className="btn btn-primary float-end" href="#">Purchase Allow</a>
-                  </td>
+              
             </tr>
           ))}
                 
