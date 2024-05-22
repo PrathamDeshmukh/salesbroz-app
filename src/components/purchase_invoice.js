@@ -114,6 +114,7 @@ const Purchases_invoice= () => {
           <button type=" button " id="first_btn"
           style={{ fontWeight: activeBtn === 'first' ? 'bold' : 'normal' }} 
           onClick={() => toggleTable('first')} className="btn btn-outline-secondary btn-lg btn-block ">With Models</button>
+
           &nbsp; &nbsp; &nbsp;<button type="button"  id="second_btn"
           style={{ fontWeight: activeBtn === 'second' ? 'bold' : 'normal' }} 
           onClick={() => toggleTable('second')} className="btn btn-outline-secondary btn-lg btn-block  ">Without Models</button>
@@ -205,111 +206,164 @@ const Purchases_invoice= () => {
          <button type="submit" id="product-btn" className="submit-button btn btn-primary ">Add </button>
               </form>
               <form className="col-md-12 form-sample" id="second_table" style={{ display: activeBtn === 'second' ? 'table' : 'none' }}>
-                
+                   
                   <div className="row">
                     <div className="col-md-6">
                       <div className="form-group">
-                        <label htmlFor="exampleInputUsername1">Series No:</label>
-                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" />
-                        <p className="col-form-label"> is your latest invoice number as per your invoice records.</p>
+                      <label htmlFor="exampleInputUsername1">Vendor Number:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Phone Number" />
                       </div>
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
-                        <label htmlFor="exampleInputUsername1">Challan Serial:</label>
-                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" />
+                        <label htmlFor="exampleInputUsername1">Vendor Alternate Number:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Vendor Alternate Number" />
                       </div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
                       <div className="form-group">
-                        <label htmlFor="exampleInputUsername1">Business Phone Number:</label>
-                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" />
+                        <label htmlFor="exampleInputUsername1">Vendor Name:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Vendor Name" />
                       </div>
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
-                        <label htmlFor="exampleInputUsername1">Business Email:</label>
-                        <input type="email" className="form-control form-control-sm" id="exampleInputUsername1" />
+                        <label htmlFor="exampleInputUsername1">Vendor Email:</label>
+                        <input type="email" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Vendor Email" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">Bill Number:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Bill Number" />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">Bill Date:</label>
+                        <input type="date" value="21/05/2024" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">GST Number:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="GST Number" />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">Type of Invoice:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="GST Invoice" />
                       </div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-12">
                       <div className="form-group">
-                        <label htmlFor="exampleInputUsername1">Your terms and condition. This will be visible on all invoices you generate</label>
-                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" />
+                        <label htmlFor="exampleInputUsername1">Address:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enetr Your Address" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">City:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enter Your City" />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">State:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enetr Your State" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">Pin Code:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enter Pin Code" />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">Countrty:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enter Country" />
                       </div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-12">
-                      <div className="form-group row">
-                        <div className="col-sm-4">
-                          <div className="form-check">
-                            <label className="form-check-label">
-                              <input className="form-check-input" type="checkbox" defaultValue id="defaultCheck1" />
-                              Send SMS invoice copy to Customer
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="form-group row">
-                        <div className="col-sm-4">
-                          <div className="form-check">
-                            <label className="form-check-label">
-                              <input className="form-check-input" type="checkbox" defaultValue id="defaultCheck1" />
-                              Send SMS invoice copy to self
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <h3 className="card-description"> Bank Details</h3>
-                  <div className="row">
-                    <div className="col-md-6">
                       <div className="form-group">
-                        <label htmlFor="exampleInputUsername1">Account Holder Name:</label>
-                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <label htmlFor="exampleInputUsername1">Account No:</label>
-                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" />
+                        <label htmlFor="exampleInputUsername1">Payment Mode:</label>
+                        <select id="cars" name="cars" placeholder="Select Payment Mode" className="form-control form-control-sm">
+                        <option value="volvo">Select Payment Method</option>
+                        <option value="saab">UPI</option>
+                        <option value="fiat">Debit Card</option>
+                        <option value="audi">Credit Card</option>
+                        <option value="audi">Net Banking</option>
+                        </select>
+                        <label className="form-check-label">
+                          <input type="checkbox" className="form-check-input" />
+                            TCS
+                          </label>
+                            &nbsp;&nbsp;
+                          <label className="form-check-label">
+                          <input type="checkbox" className="form-check-input" />
+                            EMI
+                           </label>
                       </div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
                       <div className="form-group">
-                        <label htmlFor="exampleInputUsername1">IFSC Code:</label>
-                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" />
+                        <label htmlFor="exampleInputUsername1">Total Amount:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Total Amount" />
                       </div>
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
-                        <label htmlFor="exampleInputUsername1">Bank Name:</label>
-                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" />
+                        <label htmlFor="exampleInputUsername1">Tax Amount:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Tax Amount" />
                       </div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
                       <div className="form-group">
-                        <label htmlFor="exampleInputUsername1">Branch Name:</label>
-                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" />
+                        <label htmlFor="exampleInputUsername1">Paid Amount:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Paid Amount" />
                       </div>
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
-                        <label htmlFor="exampleInputUsername1">UIP Id:</label>
-                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" />
+                        <label htmlFor="exampleInputUsername1">Pending Amount:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Pending Amount" />
                       </div>
                     </div>
                   </div>
+                  <div className="row">
+                    <div className="col-md-8">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">Invoice Notes:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Invoice Notes" />
+                      </div>
+                    </div>
+                    <div className="col-md-4">
+                      <div className="form-group">
+                      <button type="button" className="btn btn-primary">Add Invoice Image</button>
+                       </div>
+                    </div>
+                  </div>
+                  
                 </form>
                 </div>
   </div>
