@@ -26,6 +26,7 @@ import My_stock from './components/my_stock.js';
 import Stock_Audit from './components/stock_audit.js';
 import Add_your_model from './components/add_your_model.js';
 import Logout from './components/logout.js';
+import ProfileGuard from './components/ProfileGuard.js';
 
 import { BrowserRouter } from 'react-router-dom';
 // importing components from react-router-dom package
@@ -48,27 +49,32 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Template />} >
-          <Route index element={<Home />} />
-          <Route path="/my_stock" element={<My_stock/>} />
-          <Route path="/stock_audit" element={<Stock_Audit/>} />
-          <Route path="/add_model" element={<Add_your_model/>} />
-          <Route path="/my_employee" element={<My_employee />} />
-          <Route path="/My_Profile" element={<Retailer_profile/>} />
-          <Route path="/my_sales" element={<My_sales />} />
-          <Route path="/my_purchase" element={<My_purchase />} />
-          <Route path="/invoice" element={<Invoice />} />
-          <Route path="/sale_invoice" element={<Sale_invoice />} />
-          <Route path="/purchase_invoice" element={<Purchase_invoice />} />
-          <Route path="/invoice_setting" element={<Invoice_setting />} />
-          <Route path="/ledger" element={<Ledger />} />
-          <Route path="/imei_tracker" element={<IMEI_tracker />} />
-          <Route path="/sales_return" element={<Sales_return />} />
-          <Route path="/purchase_return" element={<Purchase_return />} />
-          <Route path="/my_customer" element={<My_customer />} />
-          <Route path="/my_distributor" element={<My_distributor />} />
-          <Route path="/scheme_dashboard" element={<Scheme_dashboard />} />
-          <Route path="/add_your_scheme" element={<Add_your_scheme />} />
-          <Route path="/my_earnings" element={<My_earnings />} />
+        <Route path="/My_Profile" element={<Retailer_profile/>} />
+          <Route index element={ <ProfileGuard> <Home /> </ProfileGuard> } />
+          <Route path="/my_stock" element={ <ProfileGuard> <My_stock /> </ProfileGuard> } />
+          <Route path="/stock_audit" element={ <ProfileGuard> <Stock_Audit /> </ProfileGuard> } />
+          <Route path="/add_model" element={ <ProfileGuard> <Add_your_model /> </ProfileGuard> } />
+          
+
+          <Route path="/my_employee" element={ <ProfileGuard> <My_employee /> </ProfileGuard> } />
+
+
+          
+          <Route path="/my_sales" element={ <ProfileGuard> <My_sales /> </ProfileGuard> } />
+          <Route path="/my_purchase" element={ <ProfileGuard> <My_purchase /> </ProfileGuard> } />
+          <Route path="/invoice" element={ <ProfileGuard> <Invoice /> </ProfileGuard> } />
+          <Route path="/sale_invoice" element={ <ProfileGuard> <Sale_invoice /> </ProfileGuard> } />
+          <Route path="/purchase_invoice" element={ <ProfileGuard> <Purchase_invoice /> </ProfileGuard> } />
+          <Route path="/invoice_setting" element={ <ProfileGuard> <Invoice_setting /> </ProfileGuard> } />
+          <Route path="/ledger" element={ <ProfileGuard> <Ledger /> </ProfileGuard> } />
+          <Route path="/imei_tracker" element={ <ProfileGuard> <IMEI_tracker /> </ProfileGuard> } />
+          <Route path="/sales_return" element={ <ProfileGuard> <Sales_return /> </ProfileGuard> } />
+          <Route path="/purchase_return" element={ <ProfileGuard> <Purchase_return /> </ProfileGuard> } />
+          <Route path="/my_customer" element={ <ProfileGuard> <My_customer /> </ProfileGuard> } />
+          <Route path="/my_distributor" element={ <ProfileGuard> <My_distributor /> </ProfileGuard> }/>
+          <Route path="/scheme_dashboard" element={ <ProfileGuard> <Scheme_dashboard /> </ProfileGuard> } />
+          <Route path="/add_your_scheme" element={ <ProfileGuard> <Add_your_scheme /> </ProfileGuard> } />
+          <Route path="/my_earnings" element={ <ProfileGuard> <My_earnings /> </ProfileGuard> }/>
           <Route path="/logout" element={<Logout />} />
          
         </Route>
