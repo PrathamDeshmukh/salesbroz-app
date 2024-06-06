@@ -132,46 +132,92 @@ const Purchases_invoice= () => {
           
               <form id="first_table" style={{ display: activeBtn === 'first' ? 'table' : 'none' }} className="col-md-12 form-sample" >
              
+              <div className="row">
+    <div className="col-md-12 grid-margin stretch-card">
+      <div className="card">
+        <div className="card-body">
+          <div className="table-responsive pt-3">
+            <form className="table table-bordered ">
+              <thead>
+                <tr>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Purchase Price</th>
+                  <th>Quantity</th>
                   
+                </tr>
+              </thead>
+              <tbody>
+              <td>Apple</td>
+              <td>15 pro</td>
+              <td>112000</td>
+              <td>2</td>
+              </tbody>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>   
+  <button type="button" className="btn btn-link btn-fw " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              + Add More Products
+        </button>    
          <div className="row">
            <div className="col-md-6">
              <div className="form-group">
-               <label htmlFor="exampleInputUsername1">Employee Full Name:</label>
-               <input type="text" name="e_name" className="form-control form-control-sm" id="exampleInputUsername1" />
+               <label htmlFor="exampleInputUsername1">Vendor Number:</label>
+               <input type="text" name="v_phone" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enter Phone Number" />
              </div>
            </div>
            <div className="col-md-6">
              <div className="form-group">
-               <label htmlFor="exampleInputUsername1">Contact Number:</label>
-               <input type="text" name="e_phone" className="form-control form-control-sm" id="exampleInputUsername1" />
+               <label htmlFor="exampleInputUsername1">Vendor Alternate Number:</label>
+               <input type="text" name="v_a_phone" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enter Alternate Number" />
              </div>
            </div>
          </div>
          <div className="row">
            <div className="col-md-6">
              <div className="form-group">
-               <label htmlFor="exampleInputUsername1">Create Password:</label>
-               <input type="password" name="password" className="form-control form-control-sm" id="exampleInputUsername1" />
+               <label htmlFor="exampleInputUsername1">Vendor Name:</label>
+               <input type="password" name="v_name" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enter Your Name"  />
              </div>
            </div>
            <div className="col-md-6">
              <div className="form-group">
-               <label htmlFor="exampleInputUsername1">Confirm Password:</label>
-               <input type="password" name="c_pass" className="form-control form-control-sm" id="exampleInputUsername1" />
+               <label htmlFor="exampleInputUsername1">Bill Number:</label>
+               <input type="password" name="bill_no" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enter Bill Number"  />
              </div>
            </div>
          </div>
          <div className="row">
            <div className="col-md-6">
              <div className="form-group">
-               <label htmlFor="exampleInputUsername1">Age:</label>
-               <input type="text" name="e_age" className="form-control form-control-sm" id="exampleInputUsername1" />
+               <label htmlFor="exampleInputUsername1">Bill Date:</label>
+               <input type="bill_date" value="21/05/2024" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="" />
              </div>
            </div>
            <div className="col-md-6">
              <div className="form-group">
-               <label htmlFor="exampleInputUsername1">Aadhar Number:</label>
-               <input type="text" name="adhar_no" className="form-control form-control-sm" id="exampleInputUsername1" />
+               <label htmlFor="exampleInputUsername1">Vendor E-mail:</label>
+               <input type="text" name="v_email" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enter Your E-mail" />
+             </div>
+           </div>
+         </div>
+         <div className="row">
+           <div className="col-md-6">
+             <div className="form-group">
+               <label htmlFor="exampleInputUsername1">GST Number:</label>
+               <input type="text" name="gst_no" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enter GST Number" />
+             </div>
+           </div>
+           <div className="col-md-6">
+             <div className="form-group">
+               <label htmlFor="exampleInputUsername1">Type of Invoice:</label>
+               <select name="type_invoice" className="form-control form-control-sm" id="exampleFormControlSelect1" placeholder="Select" >
+                 <option>GST Invoice</option>
+                 <option>Challan</option>
+               </select>
              </div>
            </div>
          </div>
@@ -179,34 +225,107 @@ const Purchases_invoice= () => {
            <div className="col-md-12">
              <div className="form-group">
                <label htmlFor="exampleInputUsername1">Address:</label>
-               <input type="text" name="e_address" className="form-control form-control-sm" id="exampleInputUsername1" />
+               <input type="text" name="v_address" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enter Your Full Address" />
              </div>
            </div>
          </div>
          <div className="row">
-           <div className="col-md-12">
+           <div className="col-md-6">
              <div className="form-group">
-               <label htmlFor="exampleFormControlSelect1">Allow sales Permissions:</label>
-               <select name="sale_permission" className="form-control form-control-sm" id="exampleFormControlSelect1">
-                 <option>Select</option>
-                 <option>Yes</option>
-                 <option>No</option>
-               </select>
+               <label htmlFor="exampleInputUsername1">City:</label>
+               <input type="text" name="city" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enter Phone City" />
              </div>
+           </div>
+           <div className="col-md-6">
              <div className="form-group">
-               <label htmlFor="exampleFormControlSelect2">Allow Purchase Permissions:</label>
-               <select name="purchase_permission" className="form-control form-control-sm" id="exampleFormControlSelect2">
-                 <option>Select</option>
-                 <option>Yes</option>
-                 <option>No</option>
-               </select>
+               <label htmlFor="exampleInputUsername1">State:</label>
+               <input type="text" name="state" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enter Your State" />
              </div>
            </div>
          </div>
+         <div className="row">
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">Pin Code:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enter Pin Code" />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">Countrty:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Enter Country" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-12">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">Payment Mode:</label>
+                        <select id="cars" name="cars" placeholder="Select Payment Mode" className="form-control form-control-sm">
+                        <option value="volvo">Select Payment Method</option>
+                        <option value="saab">UPI</option>
+                        <option value="fiat">Debit Card</option>
+                        <option value="audi">Credit Card</option>
+                        <option value="audi">Net Banking</option>
+                        </select>
+                        <label className="form-check-label">
+                          <input type="checkbox" className="form-check-input" />
+                            TCS
+                          </label>
+                            &nbsp;&nbsp;
+                          <label className="form-check-label">
+                          <input type="checkbox" className="form-check-input" />
+                            EMI
+                           </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">Total Amount:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Total Amount" />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">Tax Amount:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Tax Amount" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">Paid Amount:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Paid Amount" />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">Pending Amount:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Pending Amount" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-8">
+                      <div className="form-group">
+                        <label htmlFor="exampleInputUsername1">Invoice Notes:</label>
+                        <input type="text" className="form-control form-control-sm" id="exampleInputUsername1" placeholder="Invoice Notes" />
+                      </div>
+                    </div>
+                    <div className="col-md-4">
+                      <div className="form-group">
+                      <button type="button" className="btn btn-primary">Add Invoice Image</button>
+                       </div>
+                    </div>
+                  </div>
+        
          <button type="submit" id="product-btn" className="submit-button btn btn-primary ">Add </button>
               </form>
               <form className="col-md-12 form-sample" id="second_table" style={{ display: activeBtn === 'second' ? 'table' : 'none' }}>
-                   
+              
                   <div className="row">
                     <div className="col-md-6">
                       <div className="form-group">
