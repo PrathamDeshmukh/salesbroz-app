@@ -38733,5 +38733,13 @@ div.tagsinput span.tag a {
     display: none;
   }
 }
+.modal-backdrop-blur {
+  backdrop-filter: blur(10%);/* Adjust the blur intensity as needed */
+  
+}
 
+.modal-highlight {
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5); /* Add shadow to highlight the modal */
+ 
+}
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */

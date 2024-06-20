@@ -54,11 +54,11 @@ const SaleInvoice = () => {
                   <input type="text" className="form-control p-2" placeholder="Search invoice by Number,Customer and more" defaultValue />
                 </div>
                 <div className="col-md-2 mb-4 stretch-card transparent">
-                  <button type="button" className="btn btn-primary float-end">pending sales invoice</button>
+                  <button type="button" className="btn btn-link btn-fw float-end ">pending sales invoice</button>
                 </div>
                 <div className="col-md-2 mb-4 stretch-card transparent">
                   
-                  <button type="button" className="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <button type="button" className="btn btn-link btn-fw float-end " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     + Add Sales Invoice
                   </button>
 

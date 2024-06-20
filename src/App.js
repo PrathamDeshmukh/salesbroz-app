@@ -27,6 +27,8 @@ import Stock_Audit from './components/stock_audit.js';
 import Add_your_model from './components/add_your_model.js';
 import Logout from './components/logout.js';
 import ProfileGuard from './components/ProfileGuard.js';
+import Add_purchase_invoice from './components/add_purchase_invoice.js';
+import Demo from './components/demo.js'
 
 import { BrowserRouter } from 'react-router-dom';
 // importing components from react-router-dom package
@@ -47,6 +49,8 @@ function App() {
       <Routes>
         {/* This route is for home component with exact path "/", in component props we passes the imported component*/}
         <Route path="/login" element={<Login />} />
+        <Route path="/demo" element={<Demo />} />
+       
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Template />} >
         <Route path="/My_Profile" element={<Retailer_profile/>} />
@@ -65,6 +69,7 @@ function App() {
           <Route path="/invoice" element={ <ProfileGuard> <Invoice /> </ProfileGuard> } />
           <Route path="/sale_invoice" element={ <ProfileGuard> <Sale_invoice /> </ProfileGuard> } />
           <Route path="/purchase_invoice" element={ <ProfileGuard> <Purchase_invoice /> </ProfileGuard> } />
+          <Route path="/add_purchase_invoice" element={ <ProfileGuard> <Add_purchase_invoice /> </ProfileGuard> } />
           <Route path="/invoice_setting" element={ <ProfileGuard> <Invoice_setting /> </ProfileGuard> } />
           <Route path="/ledger" element={ <ProfileGuard> <Ledger /> </ProfileGuard> } />
           <Route path="/imei_tracker" element={ <ProfileGuard> <IMEI_tracker /> </ProfileGuard> } />
