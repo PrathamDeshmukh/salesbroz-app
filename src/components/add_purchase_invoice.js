@@ -21,7 +21,8 @@ const Add_purchase_invoice = () => {
   const [models, setModels] = useState([]);
   const [selectedBrand, setSelectedBrand] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
-  const [showModal, setShowModal] = useState(false);
+  const [modelDetails, setModelDetails] = useState({});
+  const [colors, setColors] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost/salesbroz_react_app/api.php')
@@ -41,6 +42,8 @@ const Add_purchase_invoice = () => {
     setSelectedBrand(brand);
     //  console.log(brand);
     setSelectedModel(null);
+    setModelDetails({});
+    setColors([]);
     if (brandId) {
       axios.get(`http://localhost/salesbroz_react_app/api.php?brand_id=${brandId}`)
         .then(response => {
@@ -58,7 +61,38 @@ const Add_purchase_invoice = () => {
     const model = models.find(m => m.id == modelId);
     setSelectedModel(model);
     // console.log(model)
-    setShowModal1(true);
+    if (modelId) {
+      axios.get(`http://localhost/salesbroz_react_app/api.php?model_id=${modelId}`)
+        .then(response => {
+          const data = response.data;
+          setModelDetails(data);
+          setColors(data.colors.map(color => ({ ...color, quantity: 0, price: 0 })));
+          setShowModal1(true);
+        })
+        .catch(error => console.error(error));
+    }
+   
+  };
+
+  const handleInputChange = (index, field, value) => {
+    const updatedColors = colors.map((color, i) => {
+      if (i === index) {
+        return { ...color, [field]: parseFloat(value) || 0 };
+      }
+      return color;
+    });
+    setColors(updatedColors);
+  };
+
+  const calculateTotalPrice = (price, quantity) => {
+    const totalPrice = price * quantity;
+    const taxRate = modelDetails.tax ? modelDetails.tax / 100 : 0.18;
+    const tax = totalPrice * taxRate;
+    return {
+      totalPrice: totalPrice.toFixed(2),
+      tax: tax.toFixed(2),
+      finalPrice: (totalPrice + tax).toFixed(2)
+    };
   };
 
 
@@ -349,52 +383,55 @@ const Add_purchase_invoice = () => {
                                                           <div className="card-body">
                                                             <div className="row mx-auto">
                                                               <div className="col-md-12   transparent d-flex justify-content-start">
-                                                                <div className="form-group row d-flex justify-content-start">
+                                                                <div className="form-group col-sm-5 d-flex justify-content-start">
                                                                   <label
                                                                     htmlFor="exampleInputUsername2"
-                                                                    className="col-sm-1 col-form-label  p-1"
+                                                                    className="col-form-label  p-3"
                                                                   >
                                                                     Item Detail:
                                                                   </label>
-                                                                  <div className="col-sm-3 ps-1">
+                                                                  <div className="row col-form-label p-3">
                                                                   {selectedBrand && selectedModel ? (
             <>
-              <p><strong>Brand:</strong> {selectedBrand.name}</p>
-              <p><strong>Model:</strong> {selectedModel.name}</p>
+              <p style={{ fontSize: '12px' }}className="p-1"><b>{selectedBrand.name}{selectedModel.name}</b></p>
+             
             </>
           ) : (
             <p>No details available</p>
           )}
                                                                   </div>
+                                                                 
+                                                                </div>{" "}
+                                                                <div className="form-group col-sm-3 d-flex justify-content-start">
+                                                           
                                                                   <label
                                                                     htmlFor="exampleInputUsername2"
-                                                                    className="col-sm-1 col-form-label  p-1"
+                                                                    className="col-form-label  p-3"
                                                                   >
-                                                                    Product{" "}
-                                                                    <br></br>
+                                                                   
                                                                     HSN:
                                                                   </label>
-                                                                  <div className="col-sm-3  ps-1">
-                                                                    <input
-                                                                      type="text"
-                                                                      className="form-control  p-1"
-                                                                      id="exampleInputUsername2"
-                                                                      required
-                                                                    />
+                                                                  <div className="row  p-3">
+                                                                  <>
+            <p style={{ fontSize: '12px' }} className="p-1"><b> {modelDetails.hsn}</b></p>
+           
+          </>
                                                                   </div>
+                                                                 
+                                                                </div>{" "}
+                                                                <div className="form-group col-sm-3 d-flex justify-content-start">
+                                                                
                                                                   <label
                                                                     htmlFor="exampleInputUsername2"
-                                                                    className="col-sm-1 col-form-label  p-1"
+                                                                    className=" col-form-label  p-3"
                                                                   >
                                                                     TAX %:
                                                                   </label>
-                                                                  <div className="col-sm-3  ps-1">
-                                                                    <input
-                                                                      type="text"
-                                                                      className="form-control  p-1"
-                                                                      id="exampleInputUsername2"
-                                                                      required
-                                                                    />
+                                                                  <div className="row  p-3 ">
+                                                                  <>
+              <p style={{ fontSize: '12px' }}className="p-1"><b> {modelDetails.tax}</b></p>
+             
+            </>
                                                                   </div>
                                                                 </div>{" "}
                                                               </div>
@@ -456,16 +493,20 @@ const Add_purchase_invoice = () => {
                                                                     </tr>
                                                                   </thead>
                                                                   <tbody>
-                                                                    <tr>
-                                                                      <td>
-                                                                        Green
-                                                                      </td>
+                                                                  {colors.map((color, index) => {
+                    const { totalPrice, tax, finalPrice } = calculateTotalPrice(color.price, color.quantity);
+                    return (
+                      <tr key={index}>
+                                                                     <td>{color.color}</td>
                                                                       <td>
                                                                         <input
                                                                           type="number"
                                                                           className="form-control col-xs-2 p-1"
                                                                           id="exampleInputUsername2"
                                                                           placeholder="Number"
+                                                                          value={color.quantity}
+                                                                          onChange={(e) => handleInputChange(index, 'quantity', e.target.value)}
+                                                                        
                                                                         />
                                                                       </td>
                                                                       <td>
@@ -483,18 +524,23 @@ const Add_purchase_invoice = () => {
                                                                           type="text"
                                                                           className="form-control p-1"
                                                                           id="exampleInputUsername2"
+                                                                          value={color.price}
+                                                                          onChange={(e) => handleInputChange(index, 'price', e.target.value)}
+                                                                       
                                                                         />
                                                                       </td>
                                                                       <td>
-                                                                        1080
+                                                                      {tax}
                                                                       </td>
                                                                       <td>
-                                                                        6000
+                                                                      {totalPrice}
                                                                       </td>
                                                                       <td>
-                                                                        7080
+                                                                       {finalPrice}
                                                                       </td>
                                                                     </tr>
+                                                                      );
+                                                                      })}
                                                                   </tbody>
                                                                 </table>
                                                               </div>
