@@ -22,7 +22,7 @@ function App() {
 
   const handleBrandSelect = (e) => {
     const brandId = e.target.value;
-    const brand = brands.find(b =>{return  b.id == brandId});
+    const brand = brands.find(b =>{return  b.id === brandId});
     setSelectedBrand(brand);
     setSelectedModel(null);
     setModelDetails({});
@@ -40,7 +40,7 @@ function App() {
 
   const handleModelSelect = (e) => {
     const modelId = e.target.value;
-    const model = models.find(m => m.id == modelId);
+    const model = models.find(m => m.id === modelId);
     setSelectedModel(model);
     if (modelId) {
       axios.get(`http://localhost/salesbroz_react_app/api.php?model_id=${modelId}`)
